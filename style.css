@@ -1,26 +1,28 @@
-/* الألوان المستخدمة: دمج الأخضر البحري والأزرق الداكن (احترافي ومطوّر) */
+/* Color scheme: dark teal and professional blue */
+
 :root {
-    /* الوضع الفاتح (Light Mode) */
-    --primary-color: #004d40;      /* أخضر بحري داكن */
-    --secondary-color: #1a73e8;    /* أزرق احترافي (مدموج) */
-    --background-color: #f8f9fa;   /* خلفية فاتحة جداً */
-    --card-background: #ffffff;    /* خلفية البطاقة بيضاء */
-    --text-color: #202124;         /* نص داكن */
+    /* Light Mode */
+    --primary-color: #004d40;
+    --secondary-color: #1a73e8;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --text-color: #202124;
     --danger-color: #d93025;
     --success-color: #0c8046;
-    --light-accent: #e8f0fe;       /* تمييز خفيف */
+    --light-accent: #e8f0fe;
     --border-color: #dadce0;
-    --warning-color: #fbbd00; 
+    --warning-color: #fbbd00;
     --table-header-bg: #e5f6ff;
 }
 
-/* الوضع الداكن (Dark Mode) */
+
+/* Dark Mode */
 [data-theme="dark"] {
-    --primary-color: #00a896;      /* أخضر فاتح للمظهر الداكن */
-    --secondary-color: #4285f4;    /* أزرق بارز للمظهر الداكن */
-    --background-color: #202124;   /* خلفية غامقة */
-    --card-background: #3c4043;    /* خلفية البطاقة غامقة قليلاً */
-    --text-color: #e8eaed;         /* نص فاتح */
+    --primary-color: #00a896;
+    --secondary-color: #4285f4;
+    --background-color: #202124;
+    --card-background: #3c4043;
+    --text-color: #e8eaed;
     --danger-color: #f28b82;
     --success-color: #34a853;
     --light-accent: #2e3538;
@@ -29,7 +31,8 @@
     --table-header-bg: #44474a;
 }
 
-/* التنسيق الأساسي (استخدام خطوط الويب لضمان التوافق) */
+
+/* Basic styling */
 body {
     font-family: 'Tajawal', 'Roboto', Arial, sans-serif;
     direction: rtl;
@@ -41,24 +44,35 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* التحكم بحجم الخط */
+
+/* Font size control */
 html {
-    font-size: 16px; /* الحجم الافتراضي للتحكم */
+    font-size: 16px;
 }
 
-/* التنسيق للغة الإنجليزية */
+
+/* English language layout */
 [dir="ltr"] {
+    direction: ltr;
     text-align: left;
 }
 
+
+/* Header */
 header {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--secondary-color)
+    );
     color: white;
     padding: 25px 20px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+
+/* Control buttons */
 .controls-container {
     display: flex;
     justify-content: flex-end;
@@ -86,9 +100,11 @@ header {
     gap: 5px;
 }
 
+
+/* Headings */
 h1 {
     font-size: 1.8em;
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
 }
 
 h2 {
@@ -102,6 +118,8 @@ h2 {
     font-size: 0.9em;
 }
 
+
+/* Attendance timer */
 .timer-display {
     font-weight: bold;
     font-size: 1.1em;
@@ -112,25 +130,48 @@ h2 {
     margin-top: 10px;
 }
 
+
+/* Main layout */
 main {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: flex-start;
     gap: 20px;
     padding: 20px;
 }
 
+
+/* Cards */
 .card {
     background-color: var(--card-background);
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    box-sizing: border-box;
+}
+
+
+/* Arabic layout:
+   Attendance tracking on the left
+   Name confirmation on the right
+*/
+#verificationForm {
+    order: 2;
     flex: 1;
     min-width: 300px;
     max-width: 500px;
-    border: 1px solid var(--border-color);
 }
 
+.dashboard-card {
+    order: 1;
+    flex: 2;
+    min-width: 0;
+    max-width: 1200px;
+}
+
+
+/* Instruction message */
 .instruction-text {
     color: var(--text-color);
     font-size: 0.9em;
@@ -141,7 +182,8 @@ main {
     border-right: 4px solid var(--secondary-color);
 }
 
-/* نموذج الإدخال */
+
+/* Form */
 form {
     display: flex;
     flex-direction: column;
@@ -171,6 +213,8 @@ input[type="text"]:focus {
     outline: none;
 }
 
+
+/* Submit button */
 button[type="submit"] {
     background-color: var(--secondary-color);
     color: white;
@@ -180,7 +224,9 @@ button[type="submit"] {
     cursor: pointer;
     font-size: 1.1em;
     font-weight: 700;
-    transition: background-color 0.3s ease, transform 0.1s;
+    transition:
+        background-color 0.3s ease,
+        transform 0.1s;
 }
 
 button[type="submit"]:hover {
@@ -188,6 +234,8 @@ button[type="submit"]:hover {
     transform: translateY(-1px);
 }
 
+
+/* Submission message */
 .message {
     padding: 12px;
     border-radius: 8px;
@@ -196,12 +244,8 @@ button[type="submit"]:hover {
     margin-top: 10px;
 }
 
-/* لوحة المتابعة */
-.dashboard-card {
-    flex-basis: 100%;
-    max-width: 1200px;
-}
 
+/* Attendance tracking */
 .summary {
     display: flex;
     gap: 20px;
@@ -226,21 +270,21 @@ button[type="submit"]:hover {
     color: var(--secondary-color);
 }
 
+
+/* Attendance table */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 15px;
+    direction: rtl;
 }
 
-th, td {
+th,
+td {
     padding: 12px;
     text-align: right;
     border-bottom: 1px solid var(--border-color);
     color: var(--text-color);
-}
-
-[dir="ltr"] th, [dir="ltr"] td {
-    text-align: left;
 }
 
 th {
@@ -249,7 +293,36 @@ th {
     font-weight: 700;
 }
 
-/* حالات الحضور */
+
+/* English layout */
+[dir="ltr"] main {
+    direction: ltr;
+}
+
+[dir="ltr"] #verificationForm {
+    order: 1;
+}
+
+[dir="ltr"] .dashboard-card {
+    order: 2;
+}
+
+[dir="ltr"] table {
+    direction: ltr;
+}
+
+[dir="ltr"] th,
+[dir="ltr"] td {
+    text-align: left;
+}
+
+[dir="ltr"] .instruction-text {
+    border-right: none;
+    border-left: 4px solid var(--secondary-color);
+}
+
+
+/* Attendance status */
 .present {
     color: var(--success-color);
     font-weight: 700;
@@ -263,40 +336,70 @@ th {
 .exceptional {
     color: var(--text-color);
     font-weight: 700;
-    background-color: var(--warning-color); 
+    background-color: var(--warning-color);
 }
 
-/* تنسيق خاص لتمييز محاولات الغش الفاشلة */
+
+/* Failed attempts */
 .danger-attempts {
-    background-color: var(--danger-color); 
+    background-color: var(--danger-color);
     color: white;
     font-weight: bolder;
     padding: 4px;
     border-radius: 4px;
 }
 
-/* تنسيق الشاشات الصغيرة (جوال) */
+
+/* Mobile layout */
+@media (max-width: 900px) {
+
+    main {
+        flex-wrap: wrap;
+    }
+
+    #verificationForm,
+    .dashboard-card {
+        flex: 1 1 100%;
+        max-width: none;
+    }
+
+    #verificationForm {
+        order: 1;
+    }
+
+    .dashboard-card {
+        order: 2;
+    }
+}
+
+
 @media (max-width: 600px) {
+
     main {
         padding: 10px;
     }
+
     .card {
         padding: 15px;
     }
+
     .controls-container {
         justify-content: space-between;
     }
+
     .summary-item {
         min-width: 100%;
     }
-    th, td {
+
+    th,
+    td {
         padding: 8px;
         font-size: 0.85em;
     }
-    /* إخفاء بعض الأعمدة غير الضرورية على الجوال لتوفير المساحة */
+
+    /* Hide the attendance type column on small screens */
     .dashboard-card table thead th:nth-child(5),
     .dashboard-card table tbody td:nth-child(5) {
-        /* إخفاء "نوع التسجيل" */
         display: none;
     }
 }
