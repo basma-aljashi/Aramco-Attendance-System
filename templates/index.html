@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance System | نظام الحضور</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body data-theme="light">
+
+    <header>
+        <div class="controls-container">
+            <button id="langToggle" class="control-button" data-lang="en">English</button>
+            <button id="themeToggle" class="control-button">🌙</button>
+            <div class="font-controls">
+                <button id="fontDown" class="control-button font-size-btn">-A</button>
+                <button id="fontUp" class="control-button font-size-btn">+A</button>
+            </div>
+        </div>
+
+        <h1
+            data-ar="أكادمية التقدم"
+            data-en="Advantage Academy">
+            أكادمية التقدم
+        </h1>
+
+        <h2
+            data-ar="نظام الحضور"
+            data-en="Attendance System">
+            نظام الحضور
+        </h2>
+
+        <div class="header-details">
+            <p
+                data-ar="المادة: انجليزي | مدرسة المادة: أ/هالة"
+                data-en="Subject: English | Instructor: Ms. Hala">
+                المادة: انجليزي | مدرسة المادة: أ/هالة
+            </p>
+
+            <p id="timerMessage" class="timer-display"></p>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="verificationForm" class="card">
+            <h2
+                data-ar="الخطوة الوحيدة: تأكيد الاسم"
+                data-en="Single Step: Name Confirmation">
+                الخطوة الوحيدة: تأكيد الاسم
+            </h2>
+
+            <p
+                class="instruction-text"
+                data-ar="⚠️ تذكير: يجب أن تكوني في الموقع المحدد لتسجيل الحضور."
+                data-en="⚠️ Reminder: You must be at the specified location to register attendance.">
+            </p>
+
+            <form id="studentForm">
+
+                <label
+                    for="studentNameInput"
+                    data-ar="ابحث بالاسم الكامل لتأكيد الحضور:"
+                    data-en="Search by full name to confirm attendance:">
+                    ابحث بالاسم الكامل لتأكيد الحضور:
+                </label>
+
+                <input
+                    type="text"
+                    id="studentNameInput"
+                    list="studentNames"
+                    data-ar-placeholder="مثال: دانه أحمد محمد"
+                    data-en-placeholder="Example: Dana Ahmed Mohammed"
+                    placeholder="مثال: دانه أحمد محمد"
+                    required
+                    autocomplete="off">
+
+                <datalist id="studentNames">
+                    {% for student in student_data %}
+                        <option
+                            value="{{ student.name_ar }}"
+                            data-ar="{{ student.name_ar }}"
+                            data-en="{{ student.name_en }}">
+                        </option>
+                    {% endfor %}
+                </datalist>
+
+                <button
+                    type="submit"
+                    id="submitButton"
+                    data-ar="تسجيل الحضور النهائي"
+                    data-en="Final Attendance Registration">
+                    تسجيل الحضور النهائي
+                </button>
+
+                <p id="submissionMessage" class="message"></p>
+
+            </form>
+        </section>
+
+        <section id="dashboard" class="card dashboard-card">
+
+            <h2
+                data-ar="📊 لوحة متابعة الحضور والغياب (المعلم)"
+                data-en="📊 Attendance Tracking (Instructor)">
+                📊 لوحة متابعة الحضور والغياب (المعلم)
+            </h2>
+
+            <div class="summary">
+
+                <div
+                    class="summary-item"
+                    data-ar-prefix="إجمالي الطالبات: "
+                    data-en-prefix="Total Students: ">
+                    <span id="totalCount">37</span>
+                </div>
+
+                <div
+                    class="summary-item"
+                    data-ar-prefix="الحاضرون: "
+                    data-en-prefix="Present: ">
+                    <span id="presentCount">0</span>
+                </div>
+
+                <div
+                    class="summary-item"
+                    data-ar-prefix="الغائبون: "
+                    data-en-prefix="Absent: ">
+                    <span id="absentCount">37</span>
+                </div>
+
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th data-ar="الرقم" data-en="SN">الرقم</th>
+                        <th data-ar="الاسم" data-en="Name">الاسم</th>
+                        <th data-ar="الحالة" data-en="Status">الحالة</th>
+                        <th data-ar="وقت التسجيل" data-en="Check-In Time">وقت التسجيل</th>
+                        <th data-ar="نوع التسجيل" data-en="Type">نوع التسجيل</th>
+                        <th data-ar="المحاولات الفاشلة" data-en="Failed Attempts">المحاولات الفاشلة</th>
+                    </tr>
+                </thead>
+
+                <tbody id="studentsTableBody"></tbody>
+            </table>
+
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
