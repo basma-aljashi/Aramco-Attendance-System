@@ -69,7 +69,6 @@ Aramco-Attendance-System/
 └── templates/
     └── index.html
 
-
 Application Components
 server1.py
 The Flask backend that handles attendance registration, location verification, attendance status, failed attempts, duplicate registration prevention, and server-side validation.
