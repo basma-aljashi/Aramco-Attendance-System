@@ -70,26 +70,36 @@ Aramco-Attendance-System/
     └── index.html
 ```
 
-server1.py
+## Application Components
+
+### `server1.py`
+
 The Flask backend that handles attendance registration, location verification, attendance status, failed attempts, duplicate registration prevention, and server-side validation.
 
-templates/index.html
+### `templates/index.html`
+
 The main page of the attendance system, including the student registration form and attendance tracking section.
 
-static/style.css
+### `static/style.css`
+
 The styling and layout of the website, including the light and dark modes, font styling, table design, and responsive layout.
 
-static/script.js
+### `static/script.js`
+
 The JavaScript functionality for language switching, location access, attendance registration, attendance status updates, theme switching, and font size controls.
 
-requirements.txt
+### `requirements.txt`
+
 Contains the Python packages required to run the application.
 
-Development
+## Development
+
 The project was developed as a practical website for the attendance process at Advantage Academy. I worked on the website interface, Flask backend, location verification, attendance tracking, bilingual support, and additional controls for the registration process.
 
-Deployment
+## Deployment
+
 The application is deployed as a Python web service using Gunicorn on Render.
 
-Privacy
+## Privacy
+
 The public version of this repository uses fictional student names and does not contain the original student identities or personal information.
