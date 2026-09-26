@@ -93,27 +93,27 @@ Aramco-Attendance-System/
 
 ## Application Components
 
-### `server1.py`
+### server1.py
 
 The Flask backend that handles attendance registration, location verification, attendance status, failed attempts, duplicate registration prevention, and server-side validation.
 
-### `templates/index.html`
+### templates/index.html
 
 The main page of the attendance system, including the student registration form and attendance tracking section.
 
-### `static/style.css`
+### static/style.css
 
 The styling and layout of the website, including the light and dark modes, font styling, table design, and responsive layout.
 
-### `static/script.js`
+### static/script.js
 
 The JavaScript functionality for language switching, location access, attendance registration, attendance status updates, theme switching, and font size controls.
 
-### `requirements.txt`
+### requirements.txt
 
 Contains the Python packages required to run the web application.
 
-### `Advantage Academy Attendance Participation System 2025.xlsx`
+### Advantage Academy Attendance Participation System 2025.xlsx
 
 The Excel-based attendance and participation system containing attendance records, participation records, and general student information for Grade 10, Grade 11, and Grade 12.
 
