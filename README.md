@@ -89,6 +89,7 @@ Aramco-Attendance-System/
 │
 └── templates/
     └── index.html
+```
 
 ## Application Components
 
